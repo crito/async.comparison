@@ -1,24 +1,43 @@
 {
+  "title": "JS Scaffolding",
   "name": "js.scaffold",
   "version": "0.0.1",
   "description": "A JavaScript based project.",
+  "main": "./dist/lib.js",
   "scripts": {
     "test": "cake test"
+  },
+  "badges": {
+    "travis": true,
+    "npm": true,
+    "gittip": "crito"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/crito/repository"
   },
-  "keywords": [
-  ],
-  "author": "Christo Buschek <crito@cryptodrunks.net>",
-  "license": "MIT",
+  "engines": {
+    "node": ">=0.8",
+    "npm": ">=1.2"
+  },
+  "keywords": [],
+  "author": "2013+ Christo Buschek <crito@cryptodrunks.net>",
+  "license": {
+    "type": "MIT"
+  },
   "bugs": {
     "url": "https://github.com/crito/repository/issues"
   },
   "homepage": "https://github.com/crito/repository",
+  "dependencies": {},
   "devDependencies": {
     "coffee-script": "~1.6.3",
     "projectz": "~0.2.6"
-  }
+  },
+  "maintainers": [
+    "Christo Buschek <crito@cryptodrunks.net (https://crito.github.io)"
+  ],
+  "contributors": [
+    "Christo Buschek <crito@cryptodrunks.net (https://crito.github.io)"
+  ]
 }

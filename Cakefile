@@ -113,11 +113,10 @@ actions =
       return step4()  unless exists
       exec("#{DOCCO} -o #{DOCS_DIR} #{DOCS_INPUT}", {stdio:'inherit', cwd:APP_DIR}, safe next, step4)
 
-  readme: (opts, next) ->
+  projectz: (opts, next) ->
     # project compile
     fsUtil.exists PROJECTZ, (exists) ->
-      return step3()  unless exists
-      spawn(PROJECTZ, ['compile'], {stdio:'inherit', cwd:APP_DIR}).on('close', safe next, step3)
+      spawn(PROJECTZ, ['compile'], {stdio:'inherit', cwd:APP_DIR}).on('close', safe next)
 
   prepublish: (opts,next) ->
     (next = opts; opts = {})  unless next?
@@ -127,7 +126,7 @@ actions =
         actions.compile(opts, safe next, step2)
       step2 = ->
         # project compile
-        actions.readme(opts, safe next, step3)
+        actions.projectz(opts, safe next, step3)
       step3 = ->
         # docco compile
         actions.docs(opts, safe next, step4)
@@ -159,7 +158,7 @@ commands =
   watch:       'compile our files initially, and again for each change (runs install)'
   test:        'run our tests (runs compile)'
   docs:        'create docs using docco'
-  readme:      'generate the readme using projectz'
+  projectz:    'generate the readme using projectz'
   prepublish:  'prepare our package for publishing'
   publish:     'publish our package (runs prepublish)'
 
