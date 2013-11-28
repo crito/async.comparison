@@ -29,9 +29,10 @@
     "url": "https://github.com/crito/repository/issues"
   },
   "homepage": "https://github.com/crito/repository",
-  "dependencies": {},
+  "dependencies": {
+    "coffee-script": "~1.6.3"
+  },
   "devDependencies": {
-    "coffee-script": "~1.6.3",
     "projectz": "~0.2.6",
     "docco": "~0.6.2"
   },
