@@ -17,7 +17,7 @@ APP_DIR       = process.cwd()
 PACKAGE_PATH  = pathUtil.join(APP_DIR, "package.json")
 PACKAGE_DATA  = require(PACKAGE_PATH)
 DOCS_DIR      = pathUtil.join(APP_DIR, "docs")
-DOCS_INPUT    = pathUtil.join(APP_DIR, "src", "lib", "*")
+DOCS_INPUT    = pathUtil.join(APP_DIR, "src", "*")
 SRC_DIR       = pathUtil.join(APP_DIR, "src")
 OUT_DIR       = pathUtil.join(APP_DIR, "dist")
 TEST_DIR      = pathUtil.join(APP_DIR, "test")
@@ -110,8 +110,7 @@ actions =
     (next = opts; opts = {})  unless next?
     # docco compile
     fsUtil.exists DOCCO, (exists) ->
-      return step4()  unless exists
-      exec("#{DOCCO} -o #{DOCS_DIR} #{DOCS_INPUT}", {stdio:'inherit', cwd:APP_DIR}, safe next, step4)
+      exec("#{DOCCO} -o #{DOCS_DIR} #{DOCS_INPUT}", {stdio:'inherit', cwd:APP_DIR}, safe next)
 
   projectz: (opts, next) ->
     # project compile
