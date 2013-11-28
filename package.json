@@ -29,9 +29,6 @@
     "url": "https://github.com/crito/repository/issues"
   },
   "homepage": "https://github.com/crito/repository",
-  "dependencies": {
-    "coffee-script": "~1.6.3"
-  },
   "devDependencies": {
     "projectz": "~0.2.6",
     "docco": "~0.6.2"
@@ -42,4 +39,10 @@
   "contributors": [
     "Christo Buschek <crito@cryptodrunks.net (https://crito.github.io)"
   ]
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "eco": "~1.1.0-rc-3",
+    "less": "~1.5.1",
+    "express": "~3.4.5"
+  }
 }
