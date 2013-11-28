@@ -1,8 +1,7 @@
 {
-  "name": "node.scaffold",
+  "name": "js.scaffold",
   "version": "0.0.1",
-  "description": "A node based project.",
-  "main": "index.js",
+  "description": "A JavaScript based project.",
   "scripts": {
     "test": "cake test"
   },
@@ -11,18 +10,15 @@
     "url": "https://github.com/crito/repository"
   },
   "keywords": [
-    "nodejs"
   ],
-  "author": "Christo Buschek",
+  "author": "Christo Buschek <crito@cryptodrunks.net>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/crito/repository/issues"
   },
   "homepage": "https://github.com/crito/repository",
   "devDependencies": {
+    "coffee-script": "~1.6.3",
     "projectz": "~0.2.6"
-  },
-  "dependencies": {
-    "coffee-script": "~1.6.3"
   }
 }
