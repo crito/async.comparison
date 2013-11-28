@@ -147,6 +147,11 @@ actions =
             # git push tags
             spawn(GIT, ['push', 'origin', '--tags'], {stdio:'inherit', cwd:APP_DIR}).on('close', safe next)
 
+  server: (opts, next) ->
+    (next = opts; opts = {}) unless next?
+    spawn(COFFEE, ['app.coffee'], {stdio: 'inherit', cwd: APP_DIR})
+      .on('close', safe next)
+
 # =====================================
 # Commands
 
@@ -160,6 +165,7 @@ commands =
   projectz:    'generate the readme using projectz'
   prepublish:  'prepare our package for publishing'
   publish:     'publish our package (runs prepublish)'
+  server:      'start the http server'
 
 Object.keys(commands).forEach (key) ->
   description = commands[key]
