@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Compare asynchronous workflows with different libraries.",
   "scripts": {
-    "start": "cake server"
+    "start": "cake server",
     "test":  "cake test"
   },
   "badges": {
@@ -42,7 +42,7 @@
   ],
   "contributors": [
     "Christo Buschek <crito@cryptodrunks.net (https://crito.github.io)"
-  ]
+  ],
   "dependencies": {
     "coffee-script": "~1.6.3",
     "eco": "~1.1.0-rc-3",
