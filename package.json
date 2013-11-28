@@ -32,7 +32,8 @@
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "~1.6.3",
-    "projectz": "~0.2.6"
+    "projectz": "~0.2.6",
+    "docco": "~0.6.2"
   },
   "maintainers": [
     "Christo Buschek <crito@cryptodrunks.net (https://crito.github.io)"
