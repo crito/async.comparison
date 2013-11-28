@@ -1,11 +1,11 @@
 {
-  "title": "JS Scaffolding",
-  "name": "js.scaffold",
+  "title": "Async Library Comparison",
+  "name": "async.library.comparison",
   "version": "0.0.1",
-  "description": "A JavaScript based project.",
-  "main": "./dist/lib.js",
+  "description": "Compare asynchronous workflows with different libraries.",
   "scripts": {
-    "test": "cake test"
+    "start": "cake server"
+    "test":  "cake test"
   },
   "badges": {
     "travis": true,
@@ -14,21 +14,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/crito/repository"
+    "url": "https://github.com/crito/async.library.comparison"
   },
   "engines": {
     "node": ">=0.8",
     "npm": ">=1.2"
   },
-  "keywords": [],
+  "keywords": [
+    "async",
+    "promises",
+    "taskgroup"
+  ],
   "author": "2013+ Christo Buschek <crito@cryptodrunks.net>",
   "license": {
     "type": "MIT"
   },
   "bugs": {
-    "url": "https://github.com/crito/repository/issues"
+    "url": "https://github.com/crito/async.library.comparison/issues"
   },
-  "homepage": "https://github.com/crito/repository",
+  "homepage": "https://github.com/crito/async.library.comparison",
   "devDependencies": {
     "projectz": "~0.2.6",
     "docco": "~0.6.2"
@@ -43,6 +47,10 @@
     "coffee-script": "~1.6.3",
     "eco": "~1.1.0-rc-3",
     "less": "~1.5.1",
-    "express": "~3.4.5"
+    "express": "~3.4.5",
+    "docco": "~0.6.2"
+  },
+  "engines": {
+    "node": ">=0.6"
   }
 }
