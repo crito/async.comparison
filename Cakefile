@@ -16,8 +16,9 @@ EXT           = (if WINDOWS then '.cmd' else '')
 APP_DIR       = process.cwd()
 PACKAGE_PATH  = pathUtil.join(APP_DIR, "package.json")
 PACKAGE_DATA  = require(PACKAGE_PATH)
-DOCS_DIR      = pathUtil.join(APP_DIR, "docs")
-DOCS_INPUT    = pathUtil.join(APP_DIR, "src", "*")
+DOCS_DIR      = pathUtil.join(APP_DIR, "public")
+DOCS_INPUT    = pathUtil.join(APP_DIR, "src", "async_comparison.js")
+DOCS_TEMPLATE = pathUtil.join(APP_DIR, "resources", "docco.jst")
 SRC_DIR       = pathUtil.join(APP_DIR, "src")
 OUT_DIR       = pathUtil.join(APP_DIR, "dist")
 TEST_DIR      = pathUtil.join(APP_DIR, "test")
@@ -109,8 +110,13 @@ actions =
   docs: (opts, next) ->
     (next = opts; opts = {})  unless next?
     # docco compile
-    fsUtil.exists DOCCO, (exists) ->
-      exec("#{DOCCO} -o #{DOCS_DIR} #{DOCS_INPUT}", {stdio:'inherit', cwd:APP_DIR}, safe next)
+    step1 = ->
+      spawn("cp", ["src/async_comparison.spec.js", "public"],
+        {stdio: 'inherit', cwd:APP_DIR}).on('close', safe next, step2)
+    step2 = ->
+      fsUtil.exists DOCCO, (exists) ->
+        exec("#{DOCCO} -o #{DOCS_DIR} -t #{DOCS_TEMPLATE} #{DOCS_INPUT}", {stdio:'inherit', cwd:APP_DIR}, safe next)
+    step1()
 
   projectz: (opts, next) ->
     # project compile
@@ -152,6 +158,12 @@ actions =
     spawn(COFFEE, ['app.coffee'], {stdio: 'inherit', cwd: APP_DIR})
       .on('close', safe next)
 
+  devserver: (opts, next) ->
+    (next = opts; opts = {}) unless next?
+    actions.docs opts, safe next, ->
+      spawn(COFFEE, ['app.coffee'], {stdio: 'inherit', cwd: APP_DIR})
+        .on('close', safe next)
+
 # =====================================
 # Commands
 
@@ -166,6 +178,7 @@ commands =
   prepublish:  'prepare our package for publishing'
   publish:     'publish our package (runs prepublish)'
   server:      'start the http server'
+  devserver:   'compile the docs before starting a server'
 
 Object.keys(commands).forEach (key) ->
   description = commands[key]

@@ -5,7 +5,7 @@
   "description": "Compare asynchronous workflows with different libraries.",
   "scripts": {
     "start": "cake server",
-    "test":  "cake test"
+    "test": "cake test"
   },
   "badges": {
     "travis": true,
@@ -17,8 +17,7 @@
     "url": "https://github.com/crito/async.library.comparison"
   },
   "engines": {
-    "node": ">=0.8",
-    "npm": ">=1.2"
+    "node": "0.10.x"
   },
   "keywords": [
     "async",
@@ -49,8 +48,5 @@
     "less": "~1.5.1",
     "express": "~3.4.5",
     "docco": "~0.6.2"
-  },
-  "engines": {
-    "node": ">=0.6"
   }
 }

@@ -1,3 +1,5 @@
+path = require('path')
+
 posts = require('./posts')
 
 module.exports = (app) ->
